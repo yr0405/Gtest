@@ -11,7 +11,7 @@ function save(key,value){try{localStorage.setItem(storagePrefix+key,JSON.stringi
 let activeDay=0;
 let activePlan=readSaved('plan','A')==='B'?'B':'A';
 function renderStop(s){const [time,title,desc,query,tag]=s;return `<li class="stop${tag==='彈性'?' flexible':''}"><div class="stop-time">${esc(time)}</div><div class="stop-content"><h4>${esc(title)}${tag?`<span class="pill${tag==='彈性'?' flex':''}">${esc(tag)}</span>`:''}</h4><p>${esc(desc)}</p>${query?`<div class="links">${mapLink(query)}</div>`:''}</div></li>`}
-function renderDetail(d){return `<details class="detail-box"><summary>${esc(d.title)}</summary><p>${esc(d.text)}</p>${d.links?`<div class="links">${d.links.map(([name,q])=>mapLink(q,name)).join('')}</div>`:''}${d.url?`<div class="links">${external(d.url,d.urlLabel)}</div>`:''}</details>`}
+function renderDetail(d){return `<details class="detail-box"><summary>${esc(d.title)}</summary><p>${esc(d.text)}</p>${d.rows?`<div class="table-wrap detail-table"><table><caption class="sr-only">${esc(d.title)}</caption><thead><tr>${d.rows[0].map(cell=>`<th scope="col">${esc(cell)}</th>`).join('')}</tr></thead><tbody>${d.rows.slice(1).map(row=>`<tr>${row.map(cell=>`<td>${esc(cell)}</td>`).join('')}</tr>`).join('')}</tbody></table></div>`:''}${d.links?`<div class="links">${d.links.map(([name,q])=>mapLink(q,name)).join('')}</div>`:''}${d.url?`<div class="links">${external(d.url,d.urlLabel)}</div>`:''}</details>`}
 function renderDay(){
  const d=days[activeDay];
  document.querySelectorAll('.day-tab').forEach((tab,i)=>{tab.setAttribute('aria-selected',String(i===activeDay));tab.tabIndex=i===activeDay?0:-1});
@@ -36,7 +36,7 @@ let startTouch=null;
 $('#day-panel').addEventListener('touchstart',e=>{if(e.touches.length!==1||e.target.closest('a,button,input,textarea,summary')){startTouch=null;return}startTouch={x:e.touches[0].clientX,y:e.touches[0].clientY}}, {passive:true});
 $('#day-panel').addEventListener('touchend',e=>{if(!startTouch)return;const dx=e.changedTouches[0].clientX-startTouch.x,dy=e.changedTouches[0].clientY-startTouch.y;startTouch=null;if(Math.abs(dx)>75&&Math.abs(dx)>Math.abs(dy)*1.6)selectDay(activeDay+(dx<0?1:-1))},{passive:true});
 $('#day-panel').addEventListener('touchcancel',()=>{startTouch=null},{passive:true});
-$('#hotel-list').innerHTML=hotels.map(h=>`<article class="hotel-card"><div class="hotel-top"><span class="small-label">${esc(h.date)}</span><span class="night">${esc(h.night)}</span></div><h3>${esc(h.name)}</h3><p>${esc(h.room)}</p><div class="hotel-bottom"><div><b>NT$${h.cost.toLocaleString('en-US')}</b><small>${h.night.includes('2')?'2 晚合計':'1 晚合計'}</small></div>${external(mapUrl(h.query??h.name),'住宿地圖 ↗','hotel-map')}</div></article>`).join('');
+$('#hotel-list').innerHTML=hotels.map(h=>`<article class="hotel-card"><div class="hotel-top"><span class="small-label">${esc(h.date)}</span><span class="night">${esc(h.night)}</span></div><h3>${esc(h.name)}</h3><p>${esc(h.room)}</p><div class="hotel-bottom"><div><b>${esc(h.costLabel??('NT$'+h.cost.toLocaleString('en-US')))}</b><small>${h.night.includes('2')?'2 晚合計':'1 晚合計'}</small></div>${external(mapUrl(h.query??h.name),'住宿地圖 ↗','hotel-map')}</div></article>`).join('');
 const rawChecks=readSaved('checks',{});
 const checked=rawChecks&&typeof rawChecks==='object'&&!Array.isArray(rawChecks)?rawChecks:{};
 $('#checklist-items').innerHTML=checklist.map((group,gi)=>`<div class="check-group"><h3>${esc(group.name)}</h3>${group.items.map((item,ii)=>{const key=`${gi}-${ii}`;return `<label class="check-item"><input type="checkbox" data-check="${key}"${checked[key]===true?' checked':''}><span>${esc(item)}</span></label>`}).join('')}</div>`).join('');
@@ -45,3 +45,4 @@ document.querySelectorAll('[data-check]').forEach(box=>box.addEventListener('cha
 const savedNotes=readSaved('notes','');$('#trip-notes').value=typeof savedNotes==='string'?savedNotes:'';
 $('#trip-notes').addEventListener('input',()=>{const ok=save('notes',$('#trip-notes').value);$('#notes-status').textContent=ok?'已儲存到目前瀏覽器。':'目前只能暫存於這個頁面，關閉前請自行備份。'});
 renderDay();updateProgress();
+
