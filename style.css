@@ -378,3 +378,16 @@ a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible,
 .detail-table th,.detail-table td{padding:10px 12px;text-align:left;vertical-align:top;overflow-wrap:anywhere}
 .detail-table th:first-child{width:37%}
 .detail-table th:nth-child(2){width:29%}
+
+/* Packing checklist and transparent cost estimates */
+.packing-group{align-self:start}
+.packing-group summary{display:flex;align-items:center;justify-content:space-between;gap:12px;cursor:pointer;font-weight:700;color:#155e8c;min-height:44px}
+.packing-group summary::before{content:"＋";font-size:18px;font-weight:400}
+.packing-group[open] summary::before{content:"−"}
+.packing-group summary>span:first-child{flex:1}
+.packing-group-count{font-size:13px;color:var(--muted);font-weight:400;white-space:nowrap}
+.packing-group-items{padding-top:10px}
+.packing-group[open] summary{padding-bottom:10px;border-bottom:1px solid var(--line)}
+.budget-original{background:#fff;padding:14px 18px;border:1px solid var(--line);border-bottom:0;font-size:15px;line-height:1.9}
+.budget-total{font-weight:700;background:#edf7ff}
+@media(max-width:650px){.section-nav a{font-size:14px;white-space:nowrap}.packing-group summary{font-size:16px}.budget-original{padding:12px 14px}.budget-summary strong{font-size:30px}}
