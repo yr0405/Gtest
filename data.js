@@ -4,33 +4,45 @@ const hotels = [
   {
     "date": "11/28（六）",
     "night": "熊本 · 1 晚",
-    "name": "レジデグローバル熊本",
+    "name": "Residence Global 熊本",
     "query": "レジデグローバル熊本 万町1-18",
     "room": "2 間房／4 位成人",
-    "cost": 5551
+    "cost": 5551,
+    "englishName": "Reside Global Kumamoto",
+    "address": "1-chōme-18 Yorozumachi，中央區，熊本市，日本",
+    "platform": "Booking"
   },
   {
     "date": "11/29、11/30",
     "night": "阿蘇 · 連住 2 晚",
-    "name": "Fairfield by Marriott Kumamoto Aso",
-    "room": "請確認 4 位成人與房間數",
-    "cost": 18016
+    "name": "熊本阿蘇萬楓酒店",
+    "room": "標準雙床房，每間 2 張單人床，共 2 間（已確認）",
+    "cost": 18016,
+    "englishName": "Fairfield by Marriott Kumamoto Aso",
+    "address": "1407-1 Kurokawa，阿蘇市，日本",
+    "platform": "易遊網"
   },
   {
     "date": "12/01（二）",
     "night": "湯布院 · 1 晚",
-    "name": "湯布院別荘 四季彩ホテル",
+    "name": "湯布院別莊四季彩酒店",
     "query": "湯布院別荘 四季彩ホテル",
     "room": "豪華雙床房 2 間／36㎡；確認 4 位成人與到店稅費",
-    "costLabel": "¥37,519"
+    "costLabel": "¥37,519",
+    "englishName": "Yufuin Besso Shikisai Hotel",
+    "address": "788-2 Yufuincho Kawakami，由布市，日本",
+    "platform": "Agoda"
   },
   {
     "date": "12/02（三）",
     "night": "福岡 · 1 晚",
-    "name": "Nishitetsu Inn Fukuoka 福岡西鐵飯店",
+    "name": "福岡西鐵酒店",
     "query": "西鉄イン福岡",
     "room": "雙床房 2 間；請確認訂單 4 位成人",
-    "cost": 6380
+    "cost": 6380,
+    "englishName": "Nishitetsu Inn Fukuoka",
+    "address": "1 Chome-16-1 Tenjin，中央區，福岡市，日本",
+    "platform": "Trip"
   }
 ];
 const days = [
