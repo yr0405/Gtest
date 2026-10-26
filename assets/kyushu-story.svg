@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 470" fill="none">
+  <title>九州的秋日小旅行</title>
+  <desc>熊本城、阿蘇山、高千穗的橋與瀑布、小巴士，以及泡溫泉的小狗。</desc>
+  <style>
+    .float{animation:float 6s ease-in-out infinite;transform-box:fill-box;transform-origin:center}
+    .cloud{animation:float 8s ease-in-out infinite}.steam{animation:steam 4s ease-in-out infinite;transform-box:fill-box;transform-origin:bottom}.van{animation:ride 5s ease-in-out infinite;transform-box:fill-box;transform-origin:center}
+    @keyframes float{50%{transform:translateY(-6px)}}@keyframes steam{50%{transform:translateY(-5px);opacity:.5}}@keyframes ride{50%{transform:translateY(-3px) rotate(-1deg)}}
+    @media(prefers-reduced-motion:reduce){*{animation:none!important}}
+  </style>
+  <g stroke="#3E3A39" stroke-width="3" stroke-linejoin="round" stroke-linecap="round">
+    <path d="M47 237C8 173 65 72 165 77c28-68 151-84 224-22 116-22 214 49 202 136 69 90 7 203-101 206-57 67-163 57-210 22C146 458 21 367 47 237Z" fill="#FFFCF6" stroke-dasharray="3 10"/>
+    <g class="float"><circle cx="495" cy="71" r="29" fill="#F6D27A"/><path d="M495 27v-8m0 103v-8m44-43h8m-104 0h8m14-31-6-6m68 68 6 6m-6-68 6-6m-68 68-6 6"/></g>
+    <g class="cloud" fill="#FFFCF6"><path d="M317 53c-2-22 25-30 37-15 13-24 46-11 44 12 25-6 33 25 6 26h-79c-21 0-26-21-8-23Z"/><path d="M73 31c-2-12 14-17 20-8 8-14 27-6 26 7 15-3 19 14 4 15H78c-12 0-15-13-5-14Z"/></g>
+    <!-- 熊本城 -->
+    <path d="m69 230 11-43h105l14 43Z" fill="#A8D3E6"/>
+    <path d="M88 190v-51h88v51" fill="#FFFCF6"/><path d="m72 144 60-36 62 36-10 9H81Z" fill="#A8D3E6"/>
+    <path d="M105 119V84h54v35" fill="#FFFCF6"/><path d="m94 87 38-28 40 28-6 7h-65Z" fill="#A8D3E6"/>
+    <path d="M128 62V48m-7 0h14m-33 109v17m17-17v17m24-17v17m17-17v17m-42-66v8m28-8v8m-58 83h88m-96 15h107"/>
+    <path d="M127 230v-24h15v24" fill="#F2A497"/>
+    <!-- 阿蘇火山 -->
+    <path d="m224 222 56-84 24 13 25-4 68 75Z" fill="#B9DAA5"/><path d="m280 138 24 13 25-4-15 24-24-2Z" fill="#F6D27A"/>
+    <path d="m242 218 31-21 26 15 27-29 43 32"/><path class="steam" d="M306 131c-14-11 9-17 0-31m19 33c-12-10 8-15 2-26"/>
+    <path d="m204 242 62-7 74 7 62-7" stroke-dasharray="3 8"/>
+    <!-- 高千穗峽：瀑布與拱橋 -->
+    <path d="m51 319 27-45 24 15 20-14 21 62 30 2 17-45 24 5 25-23 23 48-9 72H64Z" fill="#B9DAA5"/>
+    <path d="M136 297h35l-10 52 37 53h-91l41-51Z" fill="#A8D3E6"/><path d="m148 303-2 24m15-23-3 24m-34 43 35-6m-25 19 40-3"/>
+    <path d="M69 294h162v16h-36c-5-31-67-31-74 0H69Z" fill="#F6D27A"/><path d="M76 283h148m-138 0v11m27-11v11m27-11v11m27-11v11m27-11v11m22-11v11"/>
+    <path d="m162 364 18 1-9 11h-20Z" fill="#F2A497"/><path d="m166 362 9-14"/>
+    <!-- 溫泉小狗 -->
+    <path d="m436 235 30-69 44 53 36-36 56 64" fill="#B9DAA5"/>
+    <path d="M434 314c-8 23 1 52 28 57h95c26-8 32-35 25-57" fill="#F2A497"/>
+    <ellipse cx="508" cy="313" rx="78" ry="25" fill="#FFFCF6"/><ellipse cx="508" cy="312" rx="64" ry="16" fill="#A8D3E6"/>
+    <path d="M477 301c-11-24 0-50 30-51 33-1 46 24 35 51" fill="#FFFCF6"/>
+    <path d="M481 255c-27-7-32 35-16 36 9 1 14-12 16-36Zm50 0c25-9 34 32 18 35-9 1-15-13-18-35Z" fill="#F6D27A"/>
+    <path d="M492 246c5-8 26-8 32 0l-2 12h-28Z" fill="#FFFCF6"/>
+    <circle cx="497" cy="276" r="2.3" fill="#3E3A39"/><circle cx="521" cy="276" r="2.3" fill="#3E3A39"/>
+    <path d="m506 285 6 0-3 4Zm3 5q-5 6-10 0m10 0q5 6 10 0"/><path d="M481 301q8-6 15 1m26-1q8-6 15 0"/>
+    <g class="steam"><path d="M466 241c-15-12 10-19 0-35m39 28c-15-12 10-19 0-35m39 42c-15-12 10-19 0-35"/></g>
+    <path d="M458 346h13m14 8h22m20-8h12m14 4h13"/>
+    <!-- 自駕小巴士 -->
+    <path d="M265 399c70 15 130 1 175-10" stroke-dasharray="5 9"/>
+    <g class="van"><path d="M278 348v-39q0-12 12-12h73q17 0 24 20l9 25v23H278Z" fill="#F6D27A"/><path d="M290 310h23v24h-23Zm35 0h24v24h-24Zm36 0h13l10 24h-23Z" fill="#A8D3E6"/>
+    <path d="M278 347h117m-74-6v24m38-23v23m-27-18h5m-50-63h44l7 13h-57Z"/>
+    <rect x="294" y="279" width="31" height="16" rx="4" fill="#F2A497"/><path d="M306 279v16"/>
+    <circle cx="300" cy="366" r="13" fill="#FFFCF6"/><circle cx="374" cy="366" r="13" fill="#FFFCF6"/><circle cx="300" cy="366" r="3" fill="#3E3A39"/><circle cx="374" cy="366" r="3" fill="#3E3A39"/>
+    <path d="M387 344h7v9h-7" fill="#FFFCF6"/></g>
+    <!-- 秋葉 -->
+    <g class="float" fill="#F2A497"><path d="m224 90 4-22 11 13 12-5-4 17 12 10-23 4-10 15-3-22-17-10Z"/><path d="m234 100-8 31"/>
+    <path d="m577 123 3-17 9 10 10-4-3 14 9 7-18 4-8 12-2-17-13-8Z"/><path d="m584 132-6 20"/>
+    <path d="m399 409 3-17 9 10 10-4-3 14 9 7-18 4-8 12-2-17-13-8Z"/><path d="m406 418-6 20"/></g>
+    <g fill="#F6D27A"><path d="m47 251 4-8 4 8 8 4-8 4-4 8-4-8-8-4Z"/><path d="m402 131 4-8 4 8 8 4-8 4-4 8-4-8-8-4Z"/></g>
+  </g>
+</svg>
