@@ -98,4 +98,5 @@ if('IntersectionObserver' in window){
   navLinks.forEach(link=>{if(link.getAttribute('href')==='#'+visible.target.id)link.setAttribute('aria-current','location');else link.removeAttribute('aria-current')});
  },{rootMargin:'-15% 0px -55% 0px',threshold:0});
  navLinks.forEach(link=>{const target=document.querySelector(link.getAttribute('href'));if(target)observer.observe(target)});
+ observer.observe($('#home'));
 }
