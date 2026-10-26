@@ -98,6 +98,6 @@ if('IntersectionObserver' in window){
   if(!visible)return;
   navLinks.forEach(link=>{if(link.getAttribute('href')==='#'+visible.target.id)link.setAttribute('aria-current','location');else link.removeAttribute('aria-current')});
  },{rootMargin:'-15% 0px -55% 0px',threshold:0});
- navLinks.forEach(link=>{const target=document.querySelector(link.getAttribute('href'));if(target)observer.observe(target)});
+ navLinks.forEach(link=>{const href=link.getAttribute('href');if(!href||!href.startsWith('#'))return;const target=document.querySelector(href);if(target)observer.observe(target)});
  observer.observe($('#home'));
 }
