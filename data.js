@@ -7,7 +7,6 @@ const hotels = [
     "name": "Residence Global 熊本",
     "query": "レジデグローバル熊本 万町1-18",
     "room": "2 間房／4 位成人",
-    "cost": 5551,
     "englishName": "Reside Global Kumamoto",
     "address": "1-chōme-18 Yorozumachi，中央區，熊本市，日本",
     "platform": "Booking"
@@ -17,7 +16,6 @@ const hotels = [
     "night": "阿蘇 · 連住 2 晚",
     "name": "熊本阿蘇萬楓酒店",
     "room": "標準雙床房，每間 2 張單人床，共 2 間（已確認）",
-    "cost": 18016,
     "englishName": "Fairfield by Marriott Kumamoto Aso",
     "address": "1407-1 Kurokawa，阿蘇市，日本",
     "platform": "易遊網"
@@ -28,7 +26,6 @@ const hotels = [
     "name": "湯布院別莊四季彩酒店",
     "query": "湯布院別荘 四季彩ホテル",
     "room": "豪華雙床房 2 間／36㎡；確認 4 位成人與到店稅費",
-    "costLabel": "¥37,519",
     "englishName": "Yufuin Besso Shikisai Hotel",
     "address": "788-2 Yufuincho Kawakami，由布市，日本",
     "platform": "Agoda"
@@ -39,7 +36,6 @@ const hotels = [
     "name": "福岡西鐵酒店",
     "query": "西鉄イン福岡",
     "room": "雙床房 2 間；請確認訂單 4 位成人",
-    "cost": 6380,
     "englishName": "Nishitetsu Inn Fukuoka",
     "address": "1 Chome-16-1 Tenjin，中央區，福岡市，日本",
     "platform": "Trip"
@@ -287,6 +283,17 @@ const days = [
     "hotel": 1,
     "note": "優先保留 Robin → 固定午餐 → 上色見熊野座神社 → 阿蘇神社 → 飯店。刪減順序：草千里 → 白川水源 → 米塚。大觀峰已移至 Day 4；Day 2 晚餐尚未定案。",
     "stops": [
+      [
+        "出門前先看",
+        "阿蘇火山情報・火口規制",
+        "先開啟官方網站，查看當日火口規制、火山氣體、道路與開放資訊；依現場公告調整，不將網站狀態固定寫死。",
+        null,
+        "出發前必看",
+        {
+          "url": "https://www.aso-volcano.jp/",
+          "urlLabel": "查看阿蘇火山官方情報 ↗"
+        }
+      ],
       [
         "取車前",
         "Charichari 借車・騎往熊本站",
@@ -932,57 +939,3 @@ const packingGroups = [
   }
 ];
 // 費用依原對話已確認更正；不以較晚製作但沿用舊值的主檔覆蓋。
-const travelBudget = {
-  "source": "機票依10/19四人更正；日圓項目沿用原對話的台幣估值",
-  "updated": "2026/10/22",
-  "airfares": [
-    17117,
-    17117,
-    16876,
-    16958
-  ],
-  "items": [
-    {
-      "name": "熊本住宿",
-      "currency": "NT$",
-      "amount": 5551,
-      "twdCents": 555100,
-      "estimate": false
-    },
-    {
-      "name": "阿蘇住宿｜連住2晚",
-      "currency": "NT$",
-      "amount": 18016,
-      "twdCents": 1801600,
-      "estimate": false
-    },
-    {
-      "name": "湯布院四季彩住宿",
-      "currency": "JPY ¥",
-      "amount": 37519,
-      "twdCents": 768196,
-      "estimate": true
-    },
-    {
-      "name": "福岡住宿",
-      "currency": "NT$",
-      "amount": 6380,
-      "twdCents": 638000,
-      "estimate": false
-    },
-    {
-      "name": "Budget 租車",
-      "currency": "JPY ¥",
-      "amount": 75330,
-      "twdCents": 1516074,
-      "estimate": true
-    },
-    {
-      "name": "湯布院到店入湯稅",
-      "currency": null,
-      "amount": null,
-      "twdCents": 20324,
-      "estimate": true
-    }
-  ]
-};
