@@ -24,3 +24,25 @@
 .hotel-top{margin-bottom:10px}
 .hotel-card>p{margin:4px 0;line-height:1.6}
 .hotel-card .hotel-bottom{margin-top:14px;padding-top:12px}
+
+/* Trip memories and pocket phrase cards. */
+.stop-content{position:relative;min-width:0}
+.stop-art{position:absolute;right:0;top:0;width:56px;height:56px;opacity:.22;pointer-events:none}
+.stop-content:has(.stop-art) h4{padding-right:60px}
+.visit-check{display:inline-flex;align-items:center;gap:8px;margin-top:10px;min-height:44px;cursor:pointer;font-size:14px}
+.visit-check input{width:21px;height:21px;accent-color:var(--ink)}
+.visit-check:has(input:checked){font-weight:bold}
+.phrase-filters{display:flex;flex-wrap:wrap;gap:8px;margin:18px 0}
+.phrase-filter{border:2px solid var(--ink);border-radius:20px;padding:9px 15px;background:var(--paper);font:inherit;cursor:pointer}
+.phrase-filter[aria-pressed=true]{background:#F6D27A}
+.phrase-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+.phrase-card{display:flex;flex-direction:column;gap:8px;text-align:left;border:var(--stroke);border-radius:22px;background:var(--paper);padding:18px;color:var(--ink);font:inherit;cursor:pointer;overflow-wrap:anywhere}
+.phrase-card [lang=ja]{font-size:18px;line-height:1.7}
+.phrase-card [lang=en],.phrase-card small{font-size:13px}
+#phrase-dialog{max-width:680px;width:calc(100% - 32px);border:var(--stroke);border-radius:24px;background:#FFFCF6;padding:26px;color:var(--ink)}
+#phrase-dialog::backdrop{background:rgba(62,58,57,.55)}
+#phrase-close{float:right;border:2px solid var(--ink);border-radius:14px;padding:9px 14px;background:#F2A497;font:inherit;cursor:pointer}
+#phrase-dialog-title{clear:both;padding-top:20px;font-size:18px}
+#phrase-dialog-ja{font-size:clamp(26px,5vw,40px);line-height:1.7;margin:24px 0}
+#phrase-dialog-en{font-size:18px;line-height:1.6}
+@media(max-width:600px){.phrase-grid{grid-template-columns:1fr}.stop-art{width:44px;height:44px}.stop-content:has(.stop-art) h4{padding-right:48px}}
