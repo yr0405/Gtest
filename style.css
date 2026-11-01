@@ -46,3 +46,6 @@
 #phrase-dialog-ja{font-size:clamp(26px,5vw,40px);line-height:1.7;margin:24px 0}
 #phrase-dialog-en{font-size:18px;line-height:1.6}
 @media(max-width:600px){.phrase-grid{grid-template-columns:1fr}.stop-art{width:44px;height:44px}.stop-content:has(.stop-art) h4{padding-right:48px}}
+
+
+.hotel-backups{grid-column:1/-1;margin-top:0}.hotel-backups>.stay-grid{margin-top:16px}.hotel-backups .hotel-card{height:auto}
