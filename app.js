@@ -26,6 +26,7 @@ function transportForStop(title){
 }
 
 const rawVisits=readSaved('visits',{});
+for(const [key,value] of Object.entries(rawVisits)){const renamed=key.replaceAll('湯布院','由布院');if(renamed!==key && !(renamed in rawVisits))rawVisits[renamed]=value;}
 const visits=rawVisits&&typeof rawVisits==='object'&&!Array.isArray(rawVisits)?rawVisits:{};
 function visitKey(title){return days[activeDay].date+'|'+(days[activeDay].plans?activePlan:'main')+'|'+title}
 function stopArt(title){
@@ -35,7 +36,7 @@ function stopArt(title){
 
 function renderStop(s){const [time,title,desc,query,tag,extra]=s,transport=transportForStop(title),mustGo=tag==='重點'||title==='熊本熊部長辦公室・鶴屋百貨',label=mustGo?'必去':tag,jump=extra?.jump?`<a class="map-link" href="#${esc(extra.jump)}" data-jump-detail="${esc(extra.jump)}">${esc(extra.jumpLabel??'查看詳情 ↓')}</a>`:'',direct=extra?.url?external(extra.url,extra.urlLabel??'開啟地圖'):'',links=[query?mapLink(query):'',...(extra?.maps??[]).map(([label,q])=>mapLink(q,label)),direct,jump].filter(Boolean).join('');return `<li class="stop${tag==='彈性'?' flexible':''}"><div class="stop-time">${esc(time)}</div><div class="stop-content"><h4>${esc(title)}${label?`<span class="pill${tag==='彈性'?' flex':''}${mustGo?' must-go':''}">${mustGo?'<span aria-hidden="true">☆&nbsp;</span>':''}${esc(label)}</span>`:''}</h4>${transport?`<div class="stop-meta"><span class="transport-tag ${transport[1]}">${esc(transport[0])}</span></div>`:''}<p>${esc(desc)}</p>${links?`<div class="links">${links}</div>`:''}<label class="visit-check"><input type="checkbox" data-visit="${esc(visitKey(extra?.visitTitle??title))}"${visits[visitKey(extra?.visitTitle??title)]===true?' checked':''}><span>已完成／已到訪</span></label></div></li>`}
 function renderDetail(d){return `<details class="detail-box"${d.id?` id="${esc(d.id)}"`:''}><summary>${esc(d.title)}</summary><p>${esc(d.text)}</p>${d.rows?`<div class="table-wrap detail-table"><table><caption class="sr-only">${esc(d.title)}</caption><thead><tr>${d.rows[0].map(cell=>`<th scope="col">${esc(cell)}</th>`).join('')}</tr></thead><tbody>${d.rows.slice(1).map(row=>`<tr>${row.map(cell=>`<td>${esc(cell)}</td>`).join('')}</tr>`).join('')}</tbody></table></div>`:''}${d.links?`<div class="links">${d.links.map(([name,q])=>mapLink(q,name)).join('')}</div>`:''}${d.actions?`<div class="links">${d.actions.map(a=>external(a.url,a.label)).join('')}</div>`:''}${d.url?`<div class="links">${external(d.url,d.urlLabel)}</div>`:''}</details>`}
-function renderWalkMap(d){return d.walkMap?`<figure class="walk-map"><a href="${esc(d.walkMap)}" target="_blank" rel="noopener"><img src="${esc(d.walkMap)}" alt="由布院Google Maps真實道路、原步行路線及P與1至7店家編號；點開可放大" loading="lazy" style="width:100%;height:auto;border-radius:12px"></a><figcaption>真實道路與原路線｜點圖放大。2.7公里／36分鐘為純步行；含逛店休息約2～2.5小時是估計。</figcaption><div class="links">${external('https://maps.app.goo.gl/CqRJPSQV4pewmMnYA','開啟原步行導航 ↗')}</div></figure>`:''}
+function renderWalkMap(d){return d.walkMap?`<div class="links walk-navigation">${external('https://maps.app.goo.gl/CqRJPSQV4pewmMnYA','開啟原步行導航 ↗')}</div>`:''}
 function renderDay(){
  const d=days[activeDay];
  document.querySelectorAll('.day-tab').forEach((tab,i)=>{tab.setAttribute('aria-selected',String(i===activeDay));tab.tabIndex=i===activeDay?0:-1});
