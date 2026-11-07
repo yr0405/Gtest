@@ -1448,19 +1448,15 @@ const days = [
 ];
 const checklist = [
   {
-    "name": "證件・入境・金流",
+    "name": "證件・入境",
     "items": [
-      "確認4人護照效期、英文姓名與機票一致",
-      "去程CI198：11/26台灣07:30起，確認網路報到與選位（起飛前48小時）",
-      "回程CI139：12/01日本11:40／台灣10:40起，確認網路報到與選位（起飛前48小時）",
-      "完成4人Visit Japan Web入境審查與海關申報，儲存QR碼",
-      "儲存機票、住宿、租車確認信，確認離線備份可開啟",
+      "確認4人護照效期與英文姓名",
+      "去程網路報到與選位（11/26起）",
+      "回程網路報到與選位（12/01起）",
+      "完成Visit Japan Web，儲存QR碼",
+      "備份機票、住宿與租車確認信",
       "列印機票、住宿券與租車訂單",
-      "富邦旅遊不便險：未投保，預估NT$3,000；確認4人旅平險與不便險內容",
-      "換日圓：預計¥120,000；以0.21試算NT$25,200，實際依換匯成交匯率",
-      "通知發卡銀行出國用卡，準備海外信用卡與另一張備用卡",
-      "確認退稅用卡與店家指定業者資料；出境先完成海關確認，再託運行李",
-      "下載各家折扣券、退稅及免稅說明，存成離線備份（店家券待逐家確認）"
+      "備妥台灣駕照、日文譯本與護照"
     ],
     "keys": [
       "passport",
@@ -1469,146 +1465,50 @@ const checklist = [
       "vjw",
       "offline",
       "print",
-      "insurance",
-      "exchange",
-      "cards",
-      "refund",
-      "coupons"
-    ],
-    "actions": [
-      [
-        "Visit Japan Web ↗",
-        "https://www.vjw.digital.go.jp/"
-      ],
-      [
-        "華航網路報到 ↗",
-        "https://airportservice.china-airlines.com/eCheckin/eCheckin_home?country=tw&locale=zh"
-      ],
-      [
-        "入境・退稅與飯店資訊 ↗",
-        "entry-exit.html"
-      ]
+      "licence"
     ]
   },
   {
-    "name": "划船・小火車・住宿",
+    "name": "訂票・預約",
     "items": [
-      "11/16台灣08:00／日本09:00：預約11/30高千穗峽划船，4位成人分2艘；預算¥10,200，刷卡預付",
-      "訂到後確認船班、划船人與預約信，儲存離線備份",
-      "11/30當天日本08:00左右查看划船營業與停駛資訊",
-      "11/30高千穗小火車：不接受預約，當天確認營運、現場購票；4人¥9,200",
-      "12/01釜飯「心」由布院站前店：秘書已提出17:30–19:00申請，待回覆／尚未確認；預計5–7工作日回覆",
-      "Full Full天神：確認線上預訂入口、12/02取貨時段及截止時間；尚未預訂",
-      "阿蘇：確認4位成人、2房與連住2晚",
-      "花之湯：確認1間家庭房／4人、取消期限與到店費用；四季彩仍為備選，取消狀態待確認",
-      "12/01花之湯：找空檔先辦入住，以18:00前完成為原則；實際時刻待釜飯確認",
-      "福岡：蒙特利拉蘇瑞2房／4人；Trip西鐵12/02–12/03已取消",
-      "各飯店早餐依訂單確認；花之湯餐食自行安排",
-      "確認黑川溫泉日歸旅館與開放時間",
-      "第一天：確認熊本住宿提早寄放行李服務",
-      "第一天：查看11/28熊本熊出場時間",
-      "第一天：確認指定藥妝店名與台灣藥師當日值班"
+      "購買熊本市電一日券",
+      "預約高千穗划船（11/16台灣08:00）",
+      "確認小火車現場購票方式",
+      "追蹤12/01釜飯訂位回覆",
+      "確認Full Full 12/02預訂與取貨",
+      "確認住宿訂單與入住安排",
+      "確認租車訂單、取還車及加油規定"
     ],
     "keys": [
+      "tram-pass",
       "boat-book",
-      "boat-confirm",
-      "boat-status",
       "rail",
       "shin",
       "fullfull",
-      "aso-hotel",
-      "hana-hotel",
-      "hana-checkin",
-      "fukuoka-hotel",
-      "breakfast",
-      "kurokawa",
-      "luggage",
-      "kumamon",
-      "pharmacy"
-    ],
-    "actions": [
-      [
-        "划船官方預約入口 ↗",
-        "https://takachiho-kanko.info/boat/det/"
-      ],
-      [
-        "小火車營運與票價 ↗",
-        "https://amaterasu-railway.jp/attraction"
-      ],
-      [
-        "Full Full官方店舖／電話 ↗",
-        "https://www.full-full.jp/shop/"
-      ],
-      [
-        "釜飯官方資訊 ↗",
-        "https://www.yufumabushi-shin.com/about.html"
-      ]
+      "hotel-all",
+      "car-return"
     ]
   },
   {
-    "name": "自駕・交通",
+    "name": "金流・網路",
     "items": [
-      "攜帶台灣駕照正本、日文譯本及護照",
-      "確認主駕駛人名下信用卡；需要時登記第二駕駛",
-      "確認4人＋4個28吋行李箱配置",
-      "Budget租車費：現場支付、尚未付款；付款幣別與方式待確認，金額於私人帳本核對",
-      "11/29 09:30熊本站前取車；12/02原訂20:00天神北還車，午後提早還車為規劃",
-      "存好取還車店地址、加油及還車規定；確認ETC、保險與第二駕駛",
-      "購買11/28熊本市電一日券：電子¥500／人或紙本¥700／人，4人擇一方案",
-      "11/28熊本機場→商工會議所前：核對當日班次；預算¥1,400／人，不能用ICOCA",
-      "確認呉服町→辛島町→水前寺公園市電方向",
-      "ICOCA每人先備¥1,000可用餘額，已有餘額只補差額；交通費不重複加計",
-      "12/03天神→福岡機場地鐵¥260／人，再轉國際線免費接駁；預留行李與轉乘緩衝",
-      "12/01 telato排在釜飯前、16:30打烊前；花之湯找空檔先入住，晚餐後AEON採買再回旅館"
+      "投保旅平險與旅遊不便險",
+      "換日圓",
+      "通知發卡銀行，準備海外卡與備用卡",
+      "確認ICOCA餘額",
+      "下載退稅資料與折扣券",
+      "網路已訂",
+      "確認網卡開通方式與手機設定"
     ],
     "keys": [
-      "licence",
-      "driver-card",
-      "car-bags",
-      "rental-pay",
-      "car-time",
-      "car-return",
-      "tram-pass",
-      "airport-bus",
-      "tram-route",
+      "insurance",
+      "exchange",
+      "cards",
       "icoca",
-      "airport-return",
-      "telato"
-    ],
-    "actions": [
-      [
-        "熊本市電一日券 ↗",
-        "https://www.kotsu-kumamoto.jp/kiji/pub/Default.aspx?c_id=66"
-      ],
-      [
-        "熊本機場巴士 ↗",
-        "https://www.sankobus.jp/bus/ap-limousine/"
-      ],
-      [
-        "日本自駕規則 ↗",
-        "driving.html"
-      ]
-    ]
-  },
-  {
-    "name": "網路・隨身用品",
-    "items": [
-      "【已訂】暢日卡ULTRA：吃到飽不降速、6天，2026/11/28開始，NT$680",
-      "確認暢日卡開通方式、裝置設定與使用起算規則",
-      "行動電源、充電線與車充",
-      "保暖衣物、防滑鞋及雨具",
-      "個人常用藥與簡單隨身用品",
-      "下載離線地圖、飯店與景點日文名稱"
-    ],
-    "keys": [
+      "coupons",
       "net-booked",
-      "net-activate",
-      "power",
-      "warm",
-      "medicine",
-      "maps"
-    ],
-    "actions": []
+      "net-activate"
+    ]
   }
 ];
 const checklistLegacy = {"passport":"0-0","vjw":"0-2","offline":"0-3","refund":"0-6","boat-status":"2-2","aso-hotel":"2-4","hana-hotel":"2-5","fukuoka-hotel":"2-6","breakfast":"2-7","kurokawa":"2-8","luggage":"2-9","kumamon":"2-10","pharmacy":"2-11","licence":"1-0","driver-card":"1-1","car-bags":"1-2","car-return":"1-5","tram-route":"1-9","power":"3-1","warm":"3-2","medicine":"3-3","maps":"3-4"};
