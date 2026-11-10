@@ -67,7 +67,7 @@ const renderHotelCard=h=>`<article class="hotel-card"><div class="hotel-top"><sp
 const primaryHotels=hotels.filter(h=>h.status!=='cancelled'&&!h.name.includes('備選'));
 const cancelledHotels=hotels.filter(h=>h.status==='cancelled');
 const backupHotels=hotels.filter(h=>h.status!=='cancelled'&&h.name.includes('備選'));
-$('#hotel-list').innerHTML=primaryHotels.map(renderHotelCard).join('')+(backupHotels.length?`<details class="detail-box hotel-backups"><summary>備選住宿｜四季彩（取消狀態未確認）</summary><div class="stay-grid">${backupHotels.map(renderHotelCard).join('')}</div></details>`:'')+(cancelledHotels.length?`<details class="detail-box hotel-cancelled"><summary>已取消住宿紀錄｜西鐵</summary>${cancelledHotels.map(h=>`<p><strong>${esc(h.name)}</strong> · ${esc(h.date)} · ${esc(h.platform)}：已取消預訂。福岡正選為蒙特利拉蘇瑞；此取消不代表四季彩已取消。</p>`).join('')}</details>`:'');
+$('#hotel-list').innerHTML=primaryHotels.map(renderHotelCard).join('')+(backupHotels.length?`<details class="detail-box hotel-backups"><summary>備選住宿</summary><div class="stay-grid">${backupHotels.map(renderHotelCard).join('')}</div></details>`:'')+(cancelledHotels.length?`<details class="detail-box hotel-cancelled"><summary>已取消住宿紀錄｜四季彩・西鐵</summary>${cancelledHotels.map(h=>`<p><strong>${esc(h.name)}</strong> · ${esc(h.date)} · ${esc(h.platform)}：已取消預訂。</p>`).join('')}</details>`:'');
 const rawChecks=readSaved('checks',{});
 const checked=rawChecks&&typeof rawChecks==='object'&&!Array.isArray(rawChecks)?rawChecks:{};
 for(const [key,legacy] of Object.entries(checklistLegacy)){if(!(key in checked)&&checked[legacy]===true)checked[key]=true;}
@@ -136,5 +136,6 @@ $('#phrase-close').addEventListener('click',()=>$('#phrase-dialog').close());
 renderPhrases();
 
 const mapSlides=document.querySelector('#map-slides');if(mapSlides){const mapTabs=[...document.querySelectorAll('[data-map-tab]')];mapTabs.forEach((b,i)=>b.addEventListener('click',()=>mapSlides.scrollTo({left:mapSlides.children[i].offsetLeft-mapSlides.children[0].offsetLeft,behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth'})));mapSlides.addEventListener('scroll',()=>{const i=Math.max(0,Math.min(6,Math.round(mapSlides.scrollLeft/(mapSlides.clientWidth+16))));mapTabs.forEach((b,n)=>b.setAttribute('aria-pressed',String(n===i)));document.querySelector('#map-count').textContent=(i+1)+' / 7｜'+(i?'Day '+i:'總覽')+'；點圖片可看大圖'});mapSlides.addEventListener('keydown',e=>{if(['ArrowLeft','ArrowRight'].includes(e.key)){e.preventDefault();const i=Math.round(mapSlides.scrollLeft/(mapSlides.clientWidth+16));mapTabs[Math.max(0,Math.min(6,i+(e.key==='ArrowRight'?1:-1)))].click()}})}
+
 
 
