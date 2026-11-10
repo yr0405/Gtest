@@ -49,3 +49,23 @@
 
 
 .hotel-backups{grid-column:1/-1;margin-top:0}.hotel-backups>.stay-grid{margin-top:16px}.hotel-backups .hotel-card{height:auto}
+
+/* Keep mobile browsers from independently enlarging table cells. */
+html{-webkit-text-size-adjust:100%;text-size-adjust:100%}
+#budget .detail-box{min-width:0}
+#budget table{table-layout:fixed;white-space:normal;font-size:15px;line-height:1.8}
+#budget th,#budget td{text-align:left;vertical-align:top;overflow-wrap:anywhere;font-size:inherit}
+#budget th:first-child{width:29%}
+#budget th:nth-child(2){width:23%}
+@media(max-width:760px){
+  #budget .table-wrap{overflow:visible}
+  #budget table,#budget tbody,#budget tr,#budget td{display:block;width:100%}
+  #budget thead{position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%)}
+  #budget tr{padding:12px 14px;border-bottom:2px solid var(--ink)}
+  #budget tr:last-child{border-bottom:0}
+  #budget td{padding:3px 0;border:0;white-space:normal;font-size:15px;line-height:1.8;text-align:left}
+  #budget td::before{content:attr(data-label) "：";color:var(--muted)}
+  #budget td:first-child{font-weight:bold}
+  #budget td:first-child::before{content:none}
+  #budget .detail-box>p{font-size:15px}
+}

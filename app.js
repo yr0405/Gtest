@@ -72,6 +72,11 @@ const rawChecks=readSaved('checks',{});
 const checked=rawChecks&&typeof rawChecks==='object'&&!Array.isArray(rawChecks)?rawChecks:{};
 for(const [key,legacy] of Object.entries(checklistLegacy)){if(!(key in checked)&&checked[legacy]===true)checked[key]=true;}
 if(!('net-booked' in checked))checked['net-booked']=true;
+if(!readSaved('insurance-confirmed-20261111',false)){
+ checked['insurance']=true;
+ save('checks',checked);
+ save('insurance-confirmed-20261111',true);
+}
 $('#checklist-items').innerHTML=checklist.map((group,gi)=>`<div class="check-group"><h3>${esc(group.name)}</h3>${group.items.map((item,ii)=>{const key=group.keys[ii];return `<label class="check-item"><input type="checkbox" data-check="${key}"${checked[key]===true?' checked':''}><span>${esc(item)}</span></label>`}).join('')}${group.actions?.length?`<div class="links">${group.actions.map(([label,url])=>external(url,label)).join('')}</div>`:''}</div>`).join('');
 function updateProgress(){const boxes=[...document.querySelectorAll('[data-check]')],done=boxes.filter(b=>b.checked).length;$('#check-counter').textContent=done+' / '+boxes.length;const percent=Math.round(done/boxes.length*100);$('#check-progress').style.width=percent+'%';$('.progress-track').setAttribute('aria-valuenow',String(percent))}
 document.querySelectorAll('[data-check]').forEach(box=>box.addEventListener('change',()=>{checked[box.dataset.check]=box.checked;save('checks',checked);updateProgress()}));
