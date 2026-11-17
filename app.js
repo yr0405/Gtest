@@ -10,6 +10,11 @@ function readSaved(key,fallback){try{const raw=localStorage.getItem(storagePrefi
 function save(key,value){try{localStorage.setItem(storagePrefix+key,JSON.stringify(value));return true}catch{storageAvailable=false;$('#storage-status').textContent='目前瀏覽器無法儲存進度；本次仍可勾選與記筆記，關閉後可能不會保留。';return false}}
 let activeDay=0;
 let activePlan=readSaved('plan','A')==='B'?'B':'A';
+if(!readSaved('boat-booked-20261116',false)){
+ activePlan='A';
+ save('plan','A');
+ save('boat-booked-20261116',true);
+}
 function transportForStop(title){
  if(/高雄小港機場出發|抵達熊本機場|華航|搭機|福岡機場.*高雄/.test(title))return ['航班','flight'];
  if(/機場巴士/.test(title))return ['機場巴士','bus'];
@@ -58,6 +63,7 @@ document.querySelectorAll('.day-tab').forEach(button=>{
  button.addEventListener('click',()=>selectDay(Number(button.dataset.day)));
  button.addEventListener('keydown',e=>{if(['ArrowLeft','ArrowRight','Home','End'].includes(e.key)){e.preventDefault();selectDay(e.key==='Home'?0:e.key==='End'?days.length-1:(activeDay+(e.key==='ArrowRight'?1:-1)+days.length)%days.length,true)}})
 });
+document.querySelectorAll('[data-open-day]').forEach(link=>link.addEventListener('click',()=>selectDay(Number(link.dataset.openDay))));
 $('#prev-day').addEventListener('click',()=>selectDay(activeDay-1));$('#next-day').addEventListener('click',()=>selectDay(activeDay+1));
 let startTouch=null;
 $('#day-panel').addEventListener('touchstart',e=>{if(e.touches.length!==1||e.target.closest('a,button,input,textarea,summary')){startTouch=null;return}startTouch={x:e.touches[0].clientX,y:e.touches[0].clientY}}, {passive:true});
@@ -72,6 +78,12 @@ const rawChecks=readSaved('checks',{});
 const checked=rawChecks&&typeof rawChecks==='object'&&!Array.isArray(rawChecks)?rawChecks:{};
 for(const [key,legacy] of Object.entries(checklistLegacy)){if(!(key in checked)&&checked[legacy]===true)checked[key]=true;}
 if(!('net-booked' in checked))checked['net-booked']=true;
+if(!readSaved('dinner-confirmed-20261117',false)){checked['shin']=true;save('checks',checked);save('dinner-confirmed-20261117',true);}
+if(!readSaved('boat-check-confirmed-20261116',false)){
+ checked['boat-book']=true;
+ save('checks',checked);
+ save('boat-check-confirmed-20261116',true);
+}
 if(!readSaved('insurance-confirmed-20261111',false)){
  checked['insurance']=true;
  save('checks',checked);
@@ -141,6 +153,7 @@ $('#phrase-close').addEventListener('click',()=>$('#phrase-dialog').close());
 renderPhrases();
 
 const mapSlides=document.querySelector('#map-slides');if(mapSlides){const mapTabs=[...document.querySelectorAll('[data-map-tab]')];mapTabs.forEach((b,i)=>b.addEventListener('click',()=>mapSlides.scrollTo({left:mapSlides.children[i].offsetLeft-mapSlides.children[0].offsetLeft,behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth'})));mapSlides.addEventListener('scroll',()=>{const i=Math.max(0,Math.min(6,Math.round(mapSlides.scrollLeft/(mapSlides.clientWidth+16))));mapTabs.forEach((b,n)=>b.setAttribute('aria-pressed',String(n===i)));document.querySelector('#map-count').textContent=(i+1)+' / 7｜'+(i?'Day '+i:'總覽')+'；點圖片可看大圖'});mapSlides.addEventListener('keydown',e=>{if(['ArrowLeft','ArrowRight'].includes(e.key)){e.preventDefault();const i=Math.round(mapSlides.scrollLeft/(mapSlides.clientWidth+16));mapTabs[Math.max(0,Math.min(6,i+(e.key==='ArrowRight'?1:-1)))].click()}})}
+
 
 
 
