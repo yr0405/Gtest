@@ -7,7 +7,7 @@ const mapLink=(query,label='開啟地圖')=>external(mapUrl(query),label);
 const storagePrefix='misha-kyushu-2026-v1-';
 let storageAvailable=true;
 function readSaved(key,fallback){try{const raw=localStorage.getItem(storagePrefix+key);return raw===null?fallback:JSON.parse(raw)}catch{return fallback}}
-function save(key,value){try{localStorage.setItem(storagePrefix+key,JSON.stringify(value));return true}catch{storageAvailable=false;$('#storage-status').textContent='目前瀏覽器無法儲存進度；本次仍可勾選與記筆記，關閉後可能不會保留。';return false}}
+function save(key,value){try{localStorage.setItem(storagePrefix+key,JSON.stringify(value));return true}catch{storageAvailable=false;$('#storage-status').textContent='目前無法儲存；關閉頁面前請備份。';return false}}
 let activeDay=0;
 let activePlan=readSaved('plan','A')==='B'?'B':'A';
 if(!readSaved('boat-booked-20261116',false)){
@@ -69,11 +69,11 @@ let startTouch=null;
 $('#day-panel').addEventListener('touchstart',e=>{if(e.touches.length!==1||e.target.closest('a,button,input,textarea,summary')){startTouch=null;return}startTouch={x:e.touches[0].clientX,y:e.touches[0].clientY}}, {passive:true});
 $('#day-panel').addEventListener('touchend',e=>{if(!startTouch)return;const dx=e.changedTouches[0].clientX-startTouch.x,dy=e.changedTouches[0].clientY-startTouch.y;startTouch=null;if(Math.abs(dx)>75&&Math.abs(dx)>Math.abs(dy)*1.6)selectDay(activeDay+(dx<0?1:-1))},{passive:true});
 $('#day-panel').addEventListener('touchcancel',()=>{startTouch=null},{passive:true});
-const renderHotelCard=h=>`<article class="hotel-card"><div class="hotel-top"><span class="small-label">${esc(h.date)}</span><span class="night">${esc(h.night)}</span></div><h3>${esc(h.name)}</h3><p class="hotel-address">${esc(h.address)}</p><p class="small-label">${esc(h.englishName)}</p><p>訂房平台：${esc(h.platform)}</p><p>${esc(h.room)}</p>${h.cancellation?`<p class="muted">取消期限：${esc(h.cancellation)}；實際截止時刻與時區請核對訂單。</p>`:""}${h.stayNote?`<p class="muted">${esc(h.stayNote)}</p>`:""}${h.url?`<p>${external(h.url,"住宿官方資訊 ↗")}</p>`:""}<div class="hotel-bottom"><div><b>費用請登入查看</b><small>私人費用頁</small></div>${external(mapUrl(h.query??h.name),'住宿地圖 ↗','hotel-map')}</div></article>`;
+const renderHotelCard=h=>`<article class="hotel-card"><div class="hotel-top"><span class="small-label">${esc(h.date)}</span><span class="night">${esc(h.night)}</span></div><h3>${esc(h.name)}</h3><p class="hotel-address">${esc(h.address)}</p><p class="small-label">${esc(h.englishName)}</p><p>訂房平台：${esc(h.platform)}</p><p>${esc(h.room)}</p>${h.cancellation?`<p class="muted">取消期限：${esc(h.cancellation)}；截止時刻依訂單。</p>`:""}${h.stayNote?`<p class="muted">${esc(h.stayNote)}</p>`:""}${h.url?`<p>${external(h.url,"住宿官方資訊 ↗")}</p>`:""}<div class="hotel-bottom"><div><b>費用請登入查看</b><small>私人費用頁</small></div>${external(mapUrl(h.query??h.name),'住宿地圖 ↗','hotel-map')}</div></article>`;
 const primaryHotels=hotels.filter(h=>h.status!=='cancelled'&&!h.name.includes('備選'));
 const cancelledHotels=hotels.filter(h=>h.status==='cancelled');
 const backupHotels=hotels.filter(h=>h.status!=='cancelled'&&h.name.includes('備選'));
-$('#hotel-list').innerHTML=primaryHotels.map(renderHotelCard).join('')+(backupHotels.length?`<details class="detail-box hotel-backups"><summary>備選住宿</summary><div class="stay-grid">${backupHotels.map(renderHotelCard).join('')}</div></details>`:'')+(cancelledHotels.length?`<details class="detail-box hotel-cancelled"><summary>已取消住宿紀錄｜四季彩・西鐵</summary>${cancelledHotels.map(h=>`<p><strong>${esc(h.name)}</strong> · ${esc(h.date)} · ${esc(h.platform)}：已取消預訂。</p>`).join('')}</details>`:'');
+$('#hotel-list').innerHTML=primaryHotels.map(renderHotelCard).join('')+(backupHotels.length?`<details class="detail-box hotel-backups"><summary>備選住宿</summary><div class="stay-grid">${backupHotels.map(renderHotelCard).join('')}</div></details>`:'')+(cancelledHotels.length?`<details class="detail-box hotel-cancelled"><summary>已取消住宿</summary>${cancelledHotels.map(h=>`<p><strong>${esc(h.name)}</strong> · ${esc(h.date)} · ${esc(h.platform)}：已取消預訂。</p>`).join('')}</details>`:'');
 const rawChecks=readSaved('checks',{});
 const checked=rawChecks&&typeof rawChecks==='object'&&!Array.isArray(rawChecks)?rawChecks:{};
 for(const [key,legacy] of Object.entries(checklistLegacy)){if(!(key in checked)&&checked[legacy]===true)checked[key]=true;}
@@ -153,6 +153,7 @@ $('#phrase-close').addEventListener('click',()=>$('#phrase-dialog').close());
 renderPhrases();
 
 const mapSlides=document.querySelector('#map-slides');if(mapSlides){const mapTabs=[...document.querySelectorAll('[data-map-tab]')];mapTabs.forEach((b,i)=>b.addEventListener('click',()=>mapSlides.scrollTo({left:mapSlides.children[i].offsetLeft-mapSlides.children[0].offsetLeft,behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth'})));mapSlides.addEventListener('scroll',()=>{const i=Math.max(0,Math.min(6,Math.round(mapSlides.scrollLeft/(mapSlides.clientWidth+16))));mapTabs.forEach((b,n)=>b.setAttribute('aria-pressed',String(n===i)));document.querySelector('#map-count').textContent=(i+1)+' / 7｜'+(i?'Day '+i:'總覽')+'；點圖片可看大圖'});mapSlides.addEventListener('keydown',e=>{if(['ArrowLeft','ArrowRight'].includes(e.key)){e.preventDefault();const i=Math.round(mapSlides.scrollLeft/(mapSlides.clientWidth+16));mapTabs[Math.max(0,Math.min(6,i+(e.key==='ArrowRight'?1:-1)))].click()}})}
+
 
 
 
