@@ -10,13 +10,55 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Huninn&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css?v=20261111-mobile">
-  <script src="data.js?v=20261118-simple" defer></script>
+  <link rel="stylesheet" href="style.css?v=20261118-tools">
+  <script src="data.js?v=20261118-tools" defer></script>
   <script src="app.js?v=20261118-simple" defer></script>
+  <script src="navigation.js?v=20261118-tools" defer></script>
 </head>
 <body>
   <a class="skip" href="#main">跳到主要內容</a>
-  <header class="topbar"><div class="topbar-inner"><a class="brand" href="#home" aria-label="九州旅繪本首頁"><span class="brand-mark" aria-hidden="true">旅</span><span>九州・秋日旅繪本<small>MISHA’S TRAVEL NOTES</small></span></a><nav class="section-nav" aria-label="內容導覽"><a href="#route-map">路線總覽</a><a href="#itinerary">每日行程</a><a href="#stay">住宿交通</a><a href="driving.html">自駕規則</a><a href="entry-exit.html">入境出境</a><a href="#budget">費用預算</a><a href="budget.html">私人帳本</a><a href="#checklist">行前清單</a><a href="#travel-info">天氣楓紅</a><a href="#travel-tools">實用工具</a><a href="#packing">行李整理</a><a href="#phrases">旅途字卡</a></nav></div></header>
+  <header class="topbar"><div class="topbar-inner"><a class="brand" href="#home" aria-label="九州旅繪本首頁"><span class="brand-mark" aria-hidden="true">旅</span><span>九州・秋日旅繪本<small>MISHA’S TRAVEL NOTES</small></span></a><nav class="section-nav grouped-nav" aria-label="內容導覽">
+  <details class="nav-group" name="trip-nav">
+    <summary>行程</summary>
+    <div class="nav-links">
+      <a href="#route-map">路線總覽</a>
+      <a href="#itinerary">每日行程</a>
+      <a href="#stay">住宿交通</a>
+    </div>
+  </details>
+  <details class="nav-group" name="trip-nav">
+    <summary>入境・退稅</summary>
+    <div class="nav-links">
+      <a href="entry-exit.html#arrival">入境資訊</a>
+      <a href="entry-exit.html#departure">出境流程</a>
+      <a href="entry-exit.html#tax-basics">退稅流程</a>
+      <a href="https://misha-japan-tax-refund.yr0405mi.chatgpt.site" target="_blank" rel="noopener noreferrer">日本退稅小幫手 ↗</a>
+    </div>
+  </details>
+  <details class="nav-group" name="trip-nav">
+    <summary>費用</summary>
+    <div class="nav-links">
+      <a href="#budget">費用預算</a>
+      <a href="budget.html">私人帳本</a>
+    </div>
+  </details>
+  <details class="nav-group" name="trip-nav">
+    <summary>工具</summary>
+    <div class="nav-links">
+      <a href="#travel-tools">實用工具</a>
+      <a href="#travel-info">天氣楓紅</a>
+      <a href="driving.html">自駕規則</a>
+      <a href="#phrases">旅途字卡</a>
+    </div>
+  </details>
+  <details class="nav-group" name="trip-nav">
+    <summary>準備</summary>
+    <div class="nav-links">
+      <a href="#checklist">行前清單</a>
+      <a href="#packing">行李整理</a>
+    </div>
+  </details>
+</nav></div></header>
   <main id="main" class="container">
     <section class="hero" id="home" aria-labelledby="page-title">
       <div class="hero-copy">
@@ -47,7 +89,9 @@
 <details class="detail-box" open><summary>駐福岡辦事處・旅外協助</summary><p>台北駐大阪經濟文化辦事處福岡分處｜福岡市中央區櫻坂3-12-42。</p><p>一般聯絡：<a href="tel:+81927342810">+81-92-734-2810</a>；急難救助：<a href="tel:+819019229740">+81-90-1922-9740</a>（日本境內090-1922-9740，限急難重大事件）。</p><div class="official-links"><a href="https://www.roc-taiwan.org/jpfuk/index.html" target="_blank" rel="noopener noreferrer">駐福岡辦事處 ↗</a><a href="https://www.boca.gov.tw/sp-foof-countrycp-02-31-92761-1.html" target="_blank" rel="noopener noreferrer">外交部聯絡資訊 ↗</a><a href="entry-exit.html#arrival">入境與飯店資料 ↗</a><a href="entry-exit.html#refund">退稅・免稅方法 ↗</a></div></details></section>
     <section id="travel-tools" class="section"><div class="section-heading"><div><p class="eyebrow">TRAVEL TOOLS</p><h2>旅行實用工具</h2></div></div><div class="rules-grid">
 <article class="detail-box"><h3>導航與餐廳</h3><div class="official-links"><a href="https://www.google.com/maps" target="_blank" rel="noopener noreferrer">Google Maps｜地圖導航 ↗</a><a href="https://tabelog.com/" target="_blank" rel="noopener noreferrer">Tabelog｜查餐廳及可預約店 ↗</a></div></article>
-<article class="detail-box"><h3>優惠與換算</h3><p>日本優惠券：依店家公告下載並確認有效期與適用條件。</p><div class="official-links"><a href="https://www.biccamera.com/bc/c/info/report/language.jsp" target="_blank" rel="noopener noreferrer">Bic Camera 官方購物入口 ↗</a><a href="entry-exit.html#refund">退稅資訊 ↗</a></div><p>手機計算機：日圓金額 × 換匯匯率，試算台幣。</p></article>
+<article class="detail-box"><h3>購物優惠</h3><div class="official-links tool-links"><a href="https://reurl.cc/DjOqqd" target="_blank" rel="noopener noreferrer">日本藥妝店優惠券一整包 ↗</a><a href="https://reurl.cc/OMZVa7" target="_blank" rel="noopener noreferrer">日本電器・服飾・運動用品優惠券大集合 ↗</a><a href="https://www.biccamera.com/bc/c/info/report/language.jsp" target="_blank" rel="noopener noreferrer">Bic Camera 官方購物入口 ↗</a></div><a class="reference-image" href="assets/daikoku-coupon.webp" target="_blank" rel="noopener" aria-label="放大大國藥妝優惠券（另開視窗）"><img src="assets/daikoku-coupon.webp" alt="大國藥妝優惠券" width="855" height="1300" loading="lazy"><span>放大大國藥妝優惠券 ↗</span></a></article>
+<article class="detail-box"><h3>退稅與換算</h3><div class="official-links"><a href="https://misha-japan-tax-refund.yr0405mi.chatgpt.site" target="_blank" rel="noopener noreferrer">日本退稅小幫手 ↗</a><a href="entry-exit.html#tax-basics">退稅流程 ↗</a></div><p>日圓金額 × 換匯匯率，可估算台幣。</p></article>
+<article class="detail-box"><h3>災害用 Wi-Fi「00000JAPAN」</h3><p>開放時可用於報平安、查避難與災情資訊。網路未加密，請避免輸入帳密或信用卡資料。</p><a class="reference-image" href="assets/00000japan-wifi.webp" target="_blank" rel="noopener" aria-label="放大災害用 Wi-Fi 圖卡（另開視窗）"><img src="assets/00000japan-wifi.webp" alt="災害用 Wi-Fi 圖卡" width="1122" height="1402" loading="lazy"><span>放大災害用 Wi-Fi 圖卡 ↗</span></a><div class="official-links"><a href="https://www.wlan-business.org/00000japan/for_users" target="_blank" rel="noopener noreferrer">使用說明 ↗</a></div></article>
 <article class="detail-box"><h3>翻譯與天氣</h3><div class="official-links"><a href="#travel-info">tenki.jp・JMA天氣與楓紅連結 ↗</a></div></article>
 <article class="detail-box"><h3>Visit Japan Web｜入境網頁</h3><p>出發前完成並儲存QR碼，請認明日本數位廳官方網站。</p><div class="official-links"><a href="https://services.digital.go.jp/zh-cmn-hant/visit-japan-web/" target="_blank" rel="noopener noreferrer">Visit Japan Web 官方入口 ↗</a><a href="https://debbiechien.com/visit-japan-web/" target="_blank" rel="noopener noreferrer">線上填寫教學（第三方）↗</a></div></article></div></section>
     <section id="packing" class="section"><div class="section-heading"><div><p class="eyebrow">PACK FOR THE JOURNEY</p><h2>行李整理清單</h2></div><span id="packing-counter" class="counter" aria-live="polite"></span></div><p class="intro-muted">點開分類逐項勾選，紀錄保存在目前瀏覽器。</p><div id="packing-track" class="progress-track" role="progressbar" aria-label="行李整理進度" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"><div id="packing-progress"></div></div><div id="packing-items" class="checklist-grid"></div></section>

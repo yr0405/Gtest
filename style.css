@@ -69,3 +69,80 @@ html{-webkit-text-size-adjust:100%;text-size-adjust:100%}
   #budget td:first-child::before{content:none}
   #budget .detail-box>p{font-size:15px}
 }
+
+
+/* Shared grouped navigation */
+.section-nav.grouped-nav { gap: 4px; overflow: visible; }
+.nav-group { position: relative; }
+.nav-group > summary {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  padding: 8px 10px;
+  border: 2px solid transparent;
+  border-radius: 12px;
+  list-style: none;
+  white-space: nowrap;
+  cursor: pointer;
+}
+.nav-group > summary::-webkit-details-marker { display: none; }
+.nav-group > summary::after {
+  content: "";
+  width: 5px;
+  height: 5px;
+  border: solid currentColor;
+  border-width: 0 1.5px 1.5px 0;
+  transform: rotate(45deg);
+}
+.nav-group[open] > summary,
+.nav-group > summary:hover,
+.nav-group:has(a[aria-current="location"]) > summary {
+  background: var(--soft-yellow);
+  border-color: var(--ink);
+}
+.nav-links {
+  position: absolute;
+  top: calc(100% + 6px);
+  right: 0;
+  min-width: 10rem;
+  width: max-content;
+  padding: 5px;
+  border: var(--stroke);
+  border-radius: 15px;
+  background: var(--paper);
+  box-shadow: 3px 4px 0 var(--ink);
+}
+.section-nav .nav-links a { display: block; padding: 8px 10px; }
+.reference-image {
+  display: block;
+  width: min(100%, 16rem);
+  margin: 12px 0 0;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+.reference-image img {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-height: 11rem;
+  object-fit: contain;
+  border: 2px solid var(--ink);
+  border-radius: 12px;
+  background: white;
+  margin-bottom: 4px;
+}
+#emergency p { margin: 10px 0 0; }
+@media (max-width: 760px) {
+  .section-nav.grouped-nav { padding: 6px 8px 9px; justify-content: center; gap: 0; }
+  .grouped-nav .nav-group { position: static; }
+  .grouped-nav .nav-group > summary { padding: 7px clamp(3px, 1.5vw, 8px); }
+  .grouped-nav .nav-links {
+    top: calc(100% + 6px);
+    left: 12px;
+    right: 12px;
+    width: auto;
+    max-height: 60vh;
+    overflow-y: auto;
+  }
+}

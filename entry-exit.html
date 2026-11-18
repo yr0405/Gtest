@@ -10,11 +10,53 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Huninn&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css?v=20261102-integrated">
+  <link rel="stylesheet" href="style.css?v=20261118-tools">
+  <script src="navigation.js?v=20261118-tools" defer></script>
 </head>
 <body>
 <a class="skip" href="#main">跳到主要內容</a>
-<header class="topbar"><div class="topbar-inner"><a class="brand" href="index.html#home"><span class="brand-mark" aria-hidden="true">旅</span><span>九州・秋日旅繪本<small>MISHA’S TRAVEL NOTES</small></span></a><nav class="section-nav" aria-label="內容導覽"><a href="index.html#itinerary">每日行程</a><a href="#arrival">入境日本</a><a href="#departure">出境流程</a><a href="#refund">退稅網址</a><a href="index.html#budget">費用預算</a><a href="budget.html">私人帳本</a></nav></div></header>
+<header class="topbar"><div class="topbar-inner"><a class="brand" href="index.html#home"><span class="brand-mark" aria-hidden="true">旅</span><span>九州・秋日旅繪本<small>MISHA’S TRAVEL NOTES</small></span></a><nav class="section-nav grouped-nav" aria-label="內容導覽">
+  <details class="nav-group" name="trip-nav">
+    <summary>行程</summary>
+    <div class="nav-links">
+      <a href="index.html#route-map">路線總覽</a>
+      <a href="index.html#itinerary">每日行程</a>
+      <a href="index.html#stay">住宿交通</a>
+    </div>
+  </details>
+  <details class="nav-group" name="trip-nav">
+    <summary>入境・退稅</summary>
+    <div class="nav-links">
+      <a href="#arrival">入境資訊</a>
+      <a href="#departure">出境流程</a>
+      <a href="#tax-basics">退稅流程</a>
+      <a href="https://misha-japan-tax-refund.yr0405mi.chatgpt.site" target="_blank" rel="noopener noreferrer">日本退稅小幫手 ↗</a>
+    </div>
+  </details>
+  <details class="nav-group" name="trip-nav">
+    <summary>費用</summary>
+    <div class="nav-links">
+      <a href="index.html#budget">費用預算</a>
+      <a href="budget.html">私人帳本</a>
+    </div>
+  </details>
+  <details class="nav-group" name="trip-nav">
+    <summary>工具</summary>
+    <div class="nav-links">
+      <a href="index.html#travel-tools">實用工具</a>
+      <a href="index.html#travel-info">天氣楓紅</a>
+      <a href="driving.html">自駕規則</a>
+      <a href="index.html#phrases">旅途字卡</a>
+    </div>
+  </details>
+  <details class="nav-group" name="trip-nav">
+    <summary>準備</summary>
+    <div class="nav-links">
+      <a href="index.html#checklist">行前清單</a>
+      <a href="index.html#packing">行李整理</a>
+    </div>
+  </details>
+</nav></div></header>
 <main id="main" class="container rules-page">
 <section class="rules-hero"><a class="rules-back" href="index.html">← 回旅行首頁</a><p class="eyebrow">ARRIVAL · DEPARTURE · TAX REFUND</p><h1>入境與出境<br>出發前，先收好這一頁。</h1><p>11/28熊本入境・12/03福岡出境｜入境準備、機場動線、退稅連結。</p><nav class="quick-links" aria-label="頁內導覽"><a href="#arrival">① 入境準備</a><a href="#departure">② 福岡出境</a><a href="#refund">③ 退稅資料</a><a href="#refund-notes">④ 注意事項</a><a href="#trip-shopping">⑤ 本次購物</a></nav></section>
 <section id="arrival"><div class="section-heading"><div><p class="eyebrow">DAY 01 · 11/28</p><h2>入境日本・熊本機場</h2></div></div>
@@ -26,7 +68,7 @@
 <article class="rule-card"><h3>② 先完成退稅海關確認</h3><p>備妥護照及全部退稅商品，使用稅關 KIOSK；也可事先準備 Visit Japan Web，在國際線 3F 出發大廳連上指定退稅 Wi-Fi 後操作，依現場標示辦理。</p><p>GREEN：海關確認完成。<br>RED：帶商品至指定區域接受實物查驗，完成後再前往報到。這是海關確認，不代表業者已立即退款。</p><p><a href="https://www.fukuoka-airport.jp/taxrefund_info.html" target="_blank" rel="noopener noreferrer">福岡機場退稅流程與位置資訊 ↗</a></p></article>
 <article class="rule-card"><h3>③ 報到・託運・安檢・出境</h3><p>完成退稅海關確認後，到華航櫃檯辦理報到與行李託運，再進行安檢及出境審查。沒有退稅商品者依航空公司與機場指示辦理。</p><p>CI139：11:40 福岡起飛 → 13:45 高雄抵達。日本與台灣各用當地時間。報到、託運與登機截止時間以華航公告及登機證為準。</p></article>
 <article class="rule-card"><h3>④ 依店家指定業者領取退款</h3><p>海關確認與退款申請是不同程序。保留收據、購買紀錄及業者通知，依店家指定的退稅系統完成帳戶、收款方式與退款操作，並追蹤入帳。</p><p>離境後無法補做日本機場的海關確認；業者較長的退款期限，也不能取代出境時的手續。</p><p><a href="#refund">查看四家業者資料 ↓</a></p></article></div></section>
-<section class="entry-section" aria-labelledby="tax-basics"><h2 id="tax-basics">這次旅行適用的新退稅制度</h2><aside class="rules-note"><p>2026/11/01 起改為先付含稅金額，出境完成海關確認後，再由店家或退稅業者辦理退款。同店同日購買合計未稅 ¥5,000 以上，且須在店內完成免稅購買登記；商品須本人攜帶出境，在日本已消費的食品、飲料或化妝品等不能退稅。購買日起 90 天內出境時完成海關確認。</p><p>實際退款及手續費依店家與業者規定；四家公司是參考資料，使用哪一家由購物店家的合作系統決定。</p><p><a href="https://www.customs.go.jp/kaigairyoko/taxrefund.htm" target="_blank" rel="noopener noreferrer">日本海關制度說明 ↗</a> · <a href="https://www.mlit.go.jp/kankocho/tax-free/page01_000001_00023.html" target="_blank" rel="noopener noreferrer">日本觀光廳旅客問答 ↗</a></p></aside></section>
+<section class="entry-section" aria-labelledby="tax-basics"><h2 id="tax-basics">這次旅行適用的新退稅制度</h2><div class="official-links"><a href="https://misha-japan-tax-refund.yr0405mi.chatgpt.site" target="_blank" rel="noopener noreferrer">日本退稅小幫手 ↗</a></div><aside class="rules-note"><p>2026/11/01 起改為先付含稅金額，出境完成海關確認後，再由店家或退稅業者辦理退款。同店同日購買合計未稅 ¥5,000 以上，且須在店內完成免稅購買登記；商品須本人攜帶出境，在日本已消費的食品、飲料或化妝品等不能退稅。購買日起 90 天內出境時完成海關確認。</p><p>實際退款及手續費依店家與業者規定；四家公司是參考資料，使用哪一家由購物店家的合作系統決定。</p><p><a href="https://www.customs.go.jp/kaigairyoko/taxrefund.htm" target="_blank" rel="noopener noreferrer">日本海關制度說明 ↗</a> · <a href="https://www.mlit.go.jp/kankocho/tax-free/page01_000001_00023.html" target="_blank" rel="noopener noreferrer">日本觀光廳旅客問答 ↗</a></p></aside></section>
 <section id="refund-notes" class="entry-section"><div class="section-heading"><div><p class="eyebrow">SHOP · AIRPORT · REFUND</p><h2>退稅注意事項｜購物、機場與信用卡</h2></div></div>
 <aside class="rules-note"><strong>可退稅，不代表免手續費。</strong>店家的退稅申請費、平台匯款費、領現金費與匯差須分別確認；「0%」不保證最後實收完全沒有成本。下列店家費率依你提供的「日本自助旅遊中毒者」貼文整理，並非逐店官方核實，也不代表每家分店通用。</aside>
 <div class="rules-grid entry-section">

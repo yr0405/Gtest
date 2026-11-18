@@ -10,10 +10,54 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Huninn&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css?v=20261027-driving">
+  <link rel="stylesheet" href="style.css?v=20261118-tools">
+  <script src="navigation.js?v=20261118-tools" defer></script>
 </head>
 <body>
-  <header class="topbar"><div class="topbar-inner"><a class="brand" href="index.html#home"><span class="brand-mark" aria-hidden="true">旅</span><span>九州・秋日旅繪本<small>MISHA’S TRAVEL NOTES</small></span></a><nav class="section-nav" aria-label="內容導覽"><a href="index.html#itinerary">每日行程</a><a href="index.html#stay">住宿交通</a><a href="driving.html" aria-current="page">自駕規則</a><a href="#signs">標誌速查</a></nav></div></header>
+  <header class="topbar"><div class="topbar-inner"><a class="brand" href="index.html#home"><span class="brand-mark" aria-hidden="true">旅</span><span>九州・秋日旅繪本<small>MISHA’S TRAVEL NOTES</small></span></a><nav class="section-nav grouped-nav" aria-label="內容導覽">
+  <details class="nav-group" name="trip-nav">
+    <summary>行程</summary>
+    <div class="nav-links">
+      <a href="index.html#route-map">路線總覽</a>
+      <a href="index.html#itinerary">每日行程</a>
+      <a href="index.html#stay">住宿交通</a>
+    </div>
+  </details>
+  <details class="nav-group" name="trip-nav">
+    <summary>入境・退稅</summary>
+    <div class="nav-links">
+      <a href="entry-exit.html#arrival">入境資訊</a>
+      <a href="entry-exit.html#departure">出境流程</a>
+      <a href="entry-exit.html#tax-basics">退稅流程</a>
+      <a href="https://misha-japan-tax-refund.yr0405mi.chatgpt.site" target="_blank" rel="noopener noreferrer">日本退稅小幫手 ↗</a>
+    </div>
+  </details>
+  <details class="nav-group" name="trip-nav">
+    <summary>費用</summary>
+    <div class="nav-links">
+      <a href="index.html#budget">費用預算</a>
+      <a href="budget.html">私人帳本</a>
+    </div>
+  </details>
+  <details class="nav-group" name="trip-nav">
+    <summary>工具</summary>
+    <div class="nav-links">
+      <a href="index.html#travel-tools">實用工具</a>
+      <a href="index.html#travel-info">天氣楓紅</a>
+      <a href="#main">自駕規則</a>
+      <a href="#emergency">緊急聯絡</a>
+      <a href="#signs">標誌速查</a>
+      <a href="index.html#phrases">旅途字卡</a>
+    </div>
+  </details>
+  <details class="nav-group" name="trip-nav">
+    <summary>準備</summary>
+    <div class="nav-links">
+      <a href="index.html#checklist">行前清單</a>
+      <a href="index.html#packing">行李整理</a>
+    </div>
+  </details>
+</nav></div></header>
   <main id="main" class="container rules-page">
     <section class="rules-hero">
       <a class="rules-back" href="index.html#stay">← 回住宿交通</a>
@@ -36,6 +80,15 @@
     <aside class="rules-note">
       <strong>這趟特別注意：</strong> Day 3 高千穗回阿蘇、Day 4 黑川到由布院可能遇到山路與早天黑；不要為了趕景點硬開。看不懂路口時，先停、再確認導航與標誌。
     </aside>
+
+    <section id="emergency" class="pdf-section" aria-labelledby="emergency-title">
+      <div class="detail-box"><h2 id="emergency-title">九州自駕緊急聯絡</h2>
+        <div class="official-links"><a href="tel:110">報警 110</a><a href="tel:119">救護・消防 119</a><a href="tel:0570008139">JAF 0570-00-8139</a><a href="tel:0928415000">JAF 九州 092-841-5000</a></div>
+        <p>JAF 亦可撥 #8139。租車遇到事故或故障，請聯絡租車公司。</p>
+        <a class="reference-image" href="assets/kyushu-driving-emergency.webp" target="_blank" rel="noopener" aria-label="放大自駕緊急聯絡圖卡（另開視窗）"><img src="assets/kyushu-driving-emergency.webp" alt="自駕緊急聯絡圖卡" width="1134" height="750" loading="lazy"><span>放大自駕緊急聯絡圖卡 ↗</span></a>
+        <div class="official-links"><a href="https://jaf.or.jp/common/call-road-service/phone" target="_blank" rel="noopener noreferrer">JAF 道路救援 ↗</a> <a href="https://www.jnto.go.jp/emergency/eng/mi_guide.html" target="_blank" rel="noopener noreferrer">日本緊急聯絡資訊 ↗</a></div>
+      </div>
+    </section>
 
     <section id="signs" class="pdf-section">
       <div class="section-heading"><div><p class="eyebrow">ROAD SIGNS</p><h2>日本主要交通標誌速查</h2></div><span class="section-aside">直接在頁面滑看</span></div>
