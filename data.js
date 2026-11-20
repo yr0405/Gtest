@@ -352,7 +352,7 @@ const days = [
       [
         "出門前先看",
         "阿蘇火山情報・火口規制",
-        "出發前確認火口規制與道路開放資訊。阿蘇景點與旅遊資訊可查「道の駅 阿蘇」。",
+        "出發前確認火口規制、道路管制與即時路況。",
         null,
         "出發前必看",
         {
@@ -360,8 +360,8 @@ const days = [
           "urlLabel": "查看阿蘇火山官方情報 ↗",
           "actions": [
             {
-              "url": "https://www.aso-denku.jp/zw/",
-              "label": "道の駅 阿蘇｜繁中旅遊資訊 ↗"
+              "url": "https://www.jartic.or.jp/",
+              "label": "JARTIC｜日本道路交通資訊 ↗"
             }
           ]
         }
